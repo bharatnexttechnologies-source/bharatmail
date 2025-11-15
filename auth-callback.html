@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BharatMail Auth Callback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Authenticating with BharatMail...</h2>
+    <p>Please wait, verifying your identity.</p>
+
+    <script>
+        async function handleAuthCallback() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get("token");
+
+            if (!token) {
+                alert("Authentication failed: No token received.");
+                window.location.href = "/index.html";
+                return;
+            }
+
+            // Store token
+            localStorage.setItem("bharatmailAuthToken", token);
+
+            try {
+                // Fetch user info from BharatMail Auth
+                const res = await fetch(`https://bharatmail-auth.web.app/api/userinfo?auth_code=bharatmail-auth&token=${token}`);
+
+                const user = await res.json();
+
+                if (!user || !user.email) {
+                    console.error("Invalid user info:", user);
+                } else {
+                    // Save user info
+                    localStorage.setItem("bharatmail_user", JSON.stringify(user));
+                }
+
+                // Redirect user to main app page
+                window.location.href = "/app.html";
+
+            } catch (err) {
+                console.error("User info fetch failed:", err);
+
+                // Redirect anyway if token stored
+                window.location.href = "/app.html";
+            }
+        }
+
+        handleAuthCallback();
+    </script>
+</body>
+</html>
