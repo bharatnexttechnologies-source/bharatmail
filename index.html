@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BharatMail - Secure Indian Email Service</title>
+    <style>
+        :root {
+            --primary-color: #FF9933;
+            --secondary-color: #128807;
+            --accent-color: #000080;
+            --light-bg: #f5f5f5;
+            --dark-text: #333;
+            --light-text: #fff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+        .hero {
+            padding: 6rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0f0f0"/><path d="M0 0L100 100" stroke="%23ddd" stroke-width="1"/><path d="M100 0L0 100" stroke="%23ddd" stroke-width="1"/></svg>');
+            background-size: cover;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin: 0 auto 3rem;
+            color: var(--dark-text);
+            max-width: 600px;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .auth-info {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: rgba(0, 0, 128, 0.05);
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        
+        .auth-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .auth-info a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--light-text);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">📧</div>
+                    <h1>BharatMail</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Secure Email for India</h2>
+                <p>BharatMail offers a secure, private, and reliable email service designed specifically for Indian users with end-to-end encryption and advanced security features.</p>
+                <button class="btn" id="getStartedBtn">Get Started with BharatMail</button>
+                
+                <div class="auth-info">
+                    <p>You'll be redirected to our secure authentication service: 
+                       <a href="https://bharatmail-auth.web.app" id="authLink">bharatmail-auth.web.app</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <div class="logo-icon">📧</div>
+                    <h2>BharatMail</h2>
+                </div>
+                <p>Secure Email for India</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                </div>
+                <p>&copy; 2023 BharatMail. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Redirect to BharatMail Auth when the button is clicked
+        document.getElementById('getStartedBtn').addEventListener('click', function() {
+            // Redirect to BharatMail Auth service
+            window.location.href = 'https://bharatmail-auth.web.app';
+        });
+        
+        // Also make the auth link in the info box clickable
+        document.getElementById('authLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'https://bharatmail-auth.web.app';
+        });
+    </script>
+</body>
+  </html>
